@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>📊 Social Media Content Analyzer</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a) no-repeat center center fixed;
+      background-size: cover;
+      color: #e2e8f0;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-gap: 24px;
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    .dashboard h1 {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #60a5fa, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 25px;
+      letter-spacing: -0.5px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      margin-bottom: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #e2e8f0;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    #uploader {
+      text-align: center;
+      padding: 25px;
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
+      transition: border-color 0.3s, background 0.3s;
+      color: #cbd5e1;
+    }
+
+    #uploader:hover {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    #uploadBtn {
+      margin-top: 15px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    #uploadBtn:hover {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      transform: scale(1.04);
+    }
+
+    #previewImage {
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 10px;
+      display: none;
+    }
+
+    #previewPDF {
+      width: 100%;
+      height: 320px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .metrics {
+      display: flex;
+      justify-content: space-around;
+      gap: 14px;
+      font-size: 16px;
+    }
+
+    .metric-box {
+      flex: 1;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(56,189,248,0.15));
+      padding: 16px;
+      border-radius: 14px;
+      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .metric-box:hover {
+      transform: scale(1.05);
+    }
+
+    .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 6px;
+    }
+
+    pre.box, .box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #f1f5f9;
+    }
+
+    #loading {
+      text-align: center;
+      font-weight: bold;
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Social Media Content Analyzer</h1>
+
+    <!-- Left column -->
+    <div>
+      <div class="card">
+        <h2>Upload Post</h2>
+        <form id="uploadForm">
+          <div id="uploader">
+            <p>📂 Drag & drop a PDF or Image here</p>
+            <input type="file" id="fileInput" name="file" accept=".pdf,image/*" />
+          </div>
+          <button type="submit" id="uploadBtn">🚀 Analyze</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Preview</h2>
+        <p id="previewMessage" style="display:none; font-weight:bold; color:#4ade80;">
+          ✅ File selected. Ready to analyze.
+        </p>
+        <img id="previewImage" src="" alt="Image Preview" />
+        <iframe id="previewPDF"></iframe>
+      </div>
+
+      <div class="card">
+        <h2>Approach (200 words)</h2>
+        <p id="approach" class="box"></p>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div>
+      <div id="loading" class="hidden">Processing... ⏳</div>
+
+      <div class="card">
+        <h2>Extracted Text</h2>
+        <pre id="extractedText" class="box"></pre>
+      </div>
+
+      <div class="card">
+        <h2>Engagement Metrics</h2>
+        <div class="metrics">
+          <div class="metric-box">
+            Likes <div class="metric-value" id="likesCount">0</div>
+          </div>
+          <div class="metric-box">
+            Comments <div class="metric-value" id="commentsCount">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Updated Metrics (After AI Recommendations)</h2>
+        <div class="metrics">
+          <div class="metric-box">
+            Likes <div class="metric-value" id="updatedLikesCount">0</div>
+          </div>
+          <div class="metric-box">
+            Comments <div class="metric-value" id="updatedCommentsCount">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>AI Recommendations</h2>
+        <div id="recommendations" class="box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const previewImage = document.getElementById("previewImage");
+    const previewPDF = document.getElementById("previewPDF");
+    const previewMessage = document.getElementById("previewMessage");
+
+    fileInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const fileURL = URL.createObjectURL(file);
+      previewMessage.style.display = "block";
+
+      if (file.type.startsWith("image/")) {
+        previewImage.src = fileURL;
+        previewImage.style.display = "block";
+        previewPDF.style.display = "none";
+      } else if (file.type === "application/pdf") {
+        previewPDF.src = fileURL;
+        previewPDF.style.display = "block";
+        previewImage.style.display = "none";
+      } else {
+        previewImage.style.display = "none";
+        previewPDF.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
