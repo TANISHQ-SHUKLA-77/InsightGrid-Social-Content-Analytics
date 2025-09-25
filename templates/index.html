@@ -10,9 +10,56 @@
       margin: 0;
       padding: 0;
       font-family: "Inter", "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a) no-repeat center center fixed;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(56,189,248,0.15), transparent 50%),
+                  radial-gradient(1000px 700px at 90% 20%, rgba(99,102,241,0.18), transparent 55%),
+                  linear-gradient(135deg, #0b1020, #0f172a 35%, #111827 75%);
       background-size: cover;
       color: #e2e8f0;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 30px;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-badge {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: conic-gradient(from 180deg at 50% 50%, #38bdf8, #6366f1, #22d3ee, #38bdf8);
+      box-shadow: 0 8px 24px rgba(56,189,248,0.35);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(99,102,241,0.15));
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 600;
     }
 
     .dashboard {
@@ -20,34 +67,43 @@
       grid-template-columns: 1fr 2fr;
       grid-gap: 24px;
       max-width: 1300px;
-      margin: 40px auto;
+      margin: 24px auto 40px;
       padding: 30px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(25px) saturate(180%);
-      -webkit-backdrop-filter: blur(25px) saturate(180%);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 60px rgba(2,6,23,0.55);
     }
 
     .dashboard h1 {
       grid-column: 1 / -1;
       text-align: center;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 800;
-      background: linear-gradient(90deg, #60a5fa, #38bdf8, #818cf8);
+      background: linear-gradient(90deg, #22d3ee, #38bdf8, #6366f1, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 25px;
+      margin-bottom: 8px;
       letter-spacing: -0.5px;
     }
 
+    .subtitle {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 22px;
+      color: #a5b4fc;
+      font-weight: 500;
+    }
+
     .card {
-      background: rgba(255, 255, 255, 0.07);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.05));
       border-radius: 18px;
       padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.05);
       margin-bottom: 20px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -70,10 +126,10 @@
     #uploader {
       text-align: center;
       padding: 25px;
-      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border: 2px dashed rgba(255, 255, 255, 0.18);
       border-radius: 14px;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       transition: border-color 0.3s, background 0.3s;
       color: #cbd5e1;
     }
@@ -88,16 +144,17 @@
       padding: 12px 28px;
       border: none;
       border-radius: 10px;
-      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
       color: #fff;
       font-weight: 600;
       cursor: pointer;
       font-size: 16px;
       transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 10px 24px rgba(79,70,229,0.35);
     }
 
     #uploadBtn:hover {
-      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      background: linear-gradient(135deg, #0284c7, #4f46e5);
       transform: scale(1.04);
     }
 
@@ -128,11 +185,12 @@
     .metric-box {
       flex: 1;
       text-align: center;
-      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(56,189,248,0.15));
+      background: linear-gradient(135deg, rgba(99,102,241,0.14), rgba(56,189,248,0.14));
       padding: 16px;
       border-radius: 14px;
       box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.08);
       transition: transform 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .metric-box:hover {
@@ -160,23 +218,44 @@
     #loading {
       text-align: center;
       font-weight: bold;
-      color: #facc15;
+      color: #fde68a;
       margin-bottom: 10px;
+    }
+
+    .footer {
+      max-width: 1300px;
+      margin: 20px auto 40px;
+      padding: 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #94a3b8;
+      font-size: 12px;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-badge" style="background-image:url('/static/images/logo.png'); background-size:cover; background-position:center; background-color:transparent;"></div>
+      <div>InsightGrid • Analyzer</div>
+    </div>
+  </div>
   <div class="dashboard">
     <h1>Social Media Content Analyzer</h1>
+    <p class="subtitle">Extract, analyze, and optimize your posts with AI-powered insights.</p>
 
     <!-- Left column -->
     <div>
       <div class="card">
         <h2>Upload Post</h2>
         <form id="uploadForm">
-          <div id="uploader">
+          <div id="drop-area">
+            <div id="uploader">
             <p>📂 Drag & drop a PDF or Image here</p>
             <input type="file" id="fileInput" name="file" accept=".pdf,image/*" />
+            </div>
           </div>
           <button type="submit" id="uploadBtn">🚀 Analyze</button>
         </form>
@@ -192,8 +271,30 @@
       </div>
 
       <div class="card">
-        <h2>Approach (200 words)</h2>
-        <p id="approach" class="box"></p>
+        <h2>Tips & Tricks</h2>
+        <ul id="tips" class="box" style="list-style:none; padding-left:0; margin:0; display:grid; gap:10px;">
+          <li style="display:flex; gap:10px; align-items:flex-start;">
+            <span>✨</span>
+            <span>Use high-contrast images and readable fonts for better engagement.</span>
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start;">
+            <span>⏰</span>
+            <span>Post when your audience is most active; test mornings vs evenings.</span>
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start;">
+            <span>#</span>
+            <span>Add 3–5 relevant hashtags; avoid overstuffing.</span>
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start;">
+            <span>🧪</span>
+            <span>A/B test captions: question vs. statement to see what clicks.</span>
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start;">
+            <span>🎯</span>
+            <span>Lead with the value in the first sentence to hook readers.</span>
+          </li>
+        </ul>
+        <div id="approach" style="display:none"></div>
       </div>
     </div>
 
@@ -237,12 +338,19 @@
     </div>
   </div>
 
+  <div class="footer">
+    <div>© <span id="year"></span> InsightGrid. All rights reserved.</div>
+    <div>Built for creators • Secure • Fast</div>
+  </div>
+
   <script src="/static/js/app.js"></script>
   <script>
     const fileInput = document.getElementById("fileInput");
     const previewImage = document.getElementById("previewImage");
     const previewPDF = document.getElementById("previewPDF");
     const previewMessage = document.getElementById("previewMessage");
+    const yearEl = document.getElementById("year");
+    if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
     fileInput.addEventListener("change", function () {
       const file = this.files[0];

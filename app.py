@@ -8,9 +8,14 @@ import json
 import re
 from dotenv import load_dotenv
 import pytesseract
+import platform
 
-# Linux path after installation
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# Configure Tesseract path from env or OS defaults
+TESSERACT_CMD_ENV = os.environ.get("TESSERACT_CMD")
+if TESSERACT_CMD_ENV:
+    pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD_ENV
+elif platform.system() == "Windows":
+    pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 
 # Load environment variables from .env

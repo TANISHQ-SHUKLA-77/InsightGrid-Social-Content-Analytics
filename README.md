@@ -56,3 +56,18 @@ Check out the live project here: [Social Media Analyzer](https://social-media-co
 
 - The `call_gemini_for_recommendations` function uses a placeholder URL. Please replace with the official Gemini REST endpoint and adapt the request/response parsing per Google's docs.
 - This project focuses on clarity and extensibility. You can add persistent storage, user accounts, or switch to a hosted AI provider easily.
+
+## Deploying on Render (Native Python)
+
+- Ensure `apt.txt` exists at the repo root with the line:
+  ```
+  tesseract-ocr
+  ```
+- Add a `Procfile` with:
+  ```
+  web: gunicorn app:app --workers 2 --threads 4 --timeout 120
+  ```
+- Build command: `pip install -r requirements.txt`
+- Start command: `gunicorn app:app --workers 2 --threads 4 --timeout 120`
+- Optional env var for custom path: `TESSERACT_CMD=/usr/bin/tesseract`
+- On Windows, the app defaults to `C:\\Program Files\\Tesseract-OCR\\tesseract.exe` automatically.
