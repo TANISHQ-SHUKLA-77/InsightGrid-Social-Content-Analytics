@@ -40,17 +40,25 @@ This solution emphasizes clarity, ease of deployment, and extensibility. Develop
 
 ## 🚀 Live Demo
 
-Check out the live project here: [Social Media Analyzer](https://social-media-content-analyzer-4.onrender.com/)
+Check out the live project here: [Social Media Analyzer](https://insightgrid-social-content-analytics-1.onrender.com/)
 
 ## Outcome of the Project
 
-### Dashboard View
+### Loading Preview
 
-![Text Extraction](https://github.com/user-attachments/assets/b8f13da5-5de3-43d0-af04-2f856f670669)
+![Text Extraction](![Loading](https://github.com/user-attachments/assets/c4b8b10b-be44-44e0-bd07-c1273fa24024)
+)
 
-### Upload Preview
+### Generation Preview
 
-![Recommendations for More Engagement improvements](https://github.com/user-attachments/assets/e6812a7c-a70b-404d-a2a3-f1a2aa9fa97b)
+![Recommendations for More Engagement improvements](![Data Generation](https://github.com/user-attachments/assets/c38ac5fb-7c8c-4762-8a70-e2edf889c8e2)
+)
+
+### Loading Preview
+
+![Text Extraction](![Info](https://github.com/user-attachments/assets/81c84537-d8e7-46b7-97ba-7aec76dcf4dc)
+
+)
 
 ## Notes
 
