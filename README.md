@@ -54,7 +54,7 @@ Check out the live project here: [Social Media Analyzer](https://insightgrid-soc
 
 ### Insights Preview
 
-(![Info](https://github.com/user-attachments/assets/81c84537-d8e7-46b7-97ba-7aec76dcf4dc))
+![Info](https://github.com/user-attachments/assets/81c84537-d8e7-46b7-97ba-7aec76dcf4dc)
 
 ## Notes
 
