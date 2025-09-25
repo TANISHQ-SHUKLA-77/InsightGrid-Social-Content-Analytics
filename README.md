@@ -46,19 +46,15 @@ Check out the live project here: [Social Media Analyzer](https://insightgrid-soc
 
 ### Loading Preview
 
-![Text Extraction](![Loading](https://github.com/user-attachments/assets/780f1f26-29f3-4f65-bfa1-92624a96e36f)
-)
+(![Loading](https://github.com/user-attachments/assets/780f1f26-29f3-4f65-bfa1-92624a96e36f))
 
 ### Generation Preview
 
-![Recommendations for More Engagement improvements](![Data Generation](https://github.com/user-attachments/assets/c38ac5fb-7c8c-4762-8a70-e2edf889c8e2)
-)
+(![Data Generation](https://github.com/user-attachments/assets/c38ac5fb-7c8c-4762-8a70-e2edf889c8e2))
 
-### Loading Preview
+### Insights Preview
 
-![Text Extraction](![Info](https://github.com/user-attachments/assets/81c84537-d8e7-46b7-97ba-7aec76dcf4dc)
-
-)
+(![Info](https://github.com/user-attachments/assets/81c84537-d8e7-46b7-97ba-7aec76dcf4dc))
 
 ## Notes
 
