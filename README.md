@@ -1,8 +1,8 @@
-# InsightGrid Social Content Analytics
+# InsightGrid Social Content Analytics:
 
 A lightweight Flask app that accepts PDFs and images, extracts text, and provides AI-driven engagement recommendations.
 
-## Approach
+## Approach:
 
 I developed a lightweight Flask web application that allows users to upload PDFs and images to automatically extract text and generate actionable engagement insights. For PDFs, text extraction is handled using PyMuPDF, while images are processed with Tesseract OCR. The extracted content is then sent to an AI service, which provides recommendations for improving social media engagement, including optimizing post structure, captions, and hashtags.
 
@@ -10,14 +10,14 @@ The frontend features a clean, single-page HTML interface with drag-and-drop upl
 
 This solution emphasizes clarity, ease of deployment, and extensibility. Developers can easily swap the AI integration, add user authentication, or expand analytics. The application is lightweight, can run locally, or be deployed on cloud platforms, making it accessible to content creators, marketers, and small businesses seeking immediate, AI-driven feedback on their posts.
 
-## Features
+## Features:
 
 - Upload PDFs and images (drag-and-drop or file picker)
 - Extract text from PDFs (PyMuPDF) and images (Tesseract OCR)
 - AI recommendations via Gemini API (placeholder) or a local fallback
 - Basic error handling and loading states
 
-## Setup (Linux / macOS)
+## Setup: (Linux / macOS)
 
 1. Install system dependencies:
    - Tesseract OCR (e.g., `sudo apt install tesseract-ocr` or on macOS `brew install tesseract`)
@@ -42,26 +42,26 @@ This solution emphasizes clarity, ease of deployment, and extensibility. Develop
 
 Check out the live project here: [Social Media Analyzer](https://insightgrid-social-content-analytics-1.onrender.com/)
 
-## Outcome of the Project
+## Outcome of the Project:
 
-### Loading Preview
+### Loading Preview:
 
 ![Loading](https://github.com/user-attachments/assets/780f1f26-29f3-4f65-bfa1-92624a96e36f)
 
-### Generation Preview
+### Generation Preview:
 
 ![Data Generation](https://github.com/user-attachments/assets/c38ac5fb-7c8c-4762-8a70-e2edf889c8e2)
 
-### Insights Preview
+### Insights Preview:
 
 ![Info](https://github.com/user-attachments/assets/81c84537-d8e7-46b7-97ba-7aec76dcf4dc)
 
-## Notes
+## Notes:
 
 - The `call_gemini_for_recommendations` function uses a placeholder URL. Please replace with the official Gemini REST endpoint and adapt the request/response parsing per Google's docs.
 - This project focuses on clarity and extensibility. You can add persistent storage, user accounts, or switch to a hosted AI provider easily.
 
-## Deploying on Render (Native Python)
+## Deploying on Render: (Native Python)
 
 - Ensure `apt.txt` exists at the repo root with the line:
   ```
