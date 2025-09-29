@@ -17,7 +17,7 @@ This solution emphasizes clarity, ease of deployment, and extensibility. Develop
 - AI recommendations via Gemini API (placeholder) or a local fallback
 - Basic error handling and loading states
 
-## Setup: (Linux / macOS)
+## Setup:
 
 1. Install system dependencies:
    - Tesseract OCR (e.g., `sudo apt install tesseract-ocr` or on macOS `brew install tesseract`)
@@ -44,15 +44,15 @@ Check out the live project here: [Social Media Analyzer](https://insightgrid-soc
 
 ## Outcome of the Project:
 
-### Loading Preview:
+### Loading Preview!
 
 ![Loading](https://github.com/user-attachments/assets/780f1f26-29f3-4f65-bfa1-92624a96e36f)
 
-### Generation Preview:
+### Generation Preview!
 
 ![Data Generation](https://github.com/user-attachments/assets/c38ac5fb-7c8c-4762-8a70-e2edf889c8e2)
 
-### Insights Preview:
+### Insights Preview!
 
 ![Info](https://github.com/user-attachments/assets/81c84537-d8e7-46b7-97ba-7aec76dcf4dc)
 
